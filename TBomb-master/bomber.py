@@ -50,7 +50,7 @@ def clr():
 
 def bann_text():
     clr()
-    logo = """olo"""
+    logo = """ไอสัส มึงจะทำมันทำไม มันสนุกมากเหรอ เดะกุตบไอเหี้ย"""
     version = "Version: "+__VERSION__
     contributors = "Contributors: "+" ".join(__CONTRIBUTORS__)
     print(random.choice(ALL_COLORS) + logo + RESET_ALL)
@@ -80,7 +80,7 @@ def do_zip_update():
     # Unzip and overwrite the current folder
 
     if success:
-        mesgdcrt.SuccessMessage("พ่อมึงตาย")
+        mesgdcrt.SuccessMessage("TBomb was updated to the latest version")
         mesgdcrt.GeneralMessage(
             "Please run the script again to load the latest version")
     else:
@@ -161,7 +161,7 @@ def get_phone_info():
     while True:
         target = ""
         cc = input(mesgdcrt.CommandMessage(
-            "ใส่รหัสประเทศไอสัส (Without +): "))
+            "Enter your country code (Without +): "))
         cc = format_phone(cc)
         if not country_codes.get(cc, False):
             mesgdcrt.WarningMessage(
@@ -169,7 +169,7 @@ def get_phone_info():
                 " is invalid or unsupported".format(cc=cc))
             continue
         target = input(mesgdcrt.CommandMessage(
-            "ใส่เบอร์เลยไอสัส: +" + cc + " "))
+            "Enter the target number: +" + cc + " "))
         target = format_phone(target)
         if ((len(target) <= 6) or (len(target) >= 12)):
             mesgdcrt.WarningMessage(
@@ -196,10 +196,10 @@ def pretty_print(cc, target, success, failed):
     mesgdcrt.SectionMessage("Bombing is in progress - Please be patient")
     mesgdcrt.GeneralMessage(
         "Please stay connected to the internet during bombing")
-    mesgdcrt.GeneralMessage("เป้าหมาย     : " + cc + " " + target)
-    mesgdcrt.GeneralMessage("จำนวนที่ส่ง    : " + str(requested))
-    mesgdcrt.GeneralMessage("สำเร็จ        : " + str(success))
-    mesgdcrt.GeneralMessage("ล้มเหลว       : " + str(failed))
+    mesgdcrt.GeneralMessage("เป้าหมาย       : " + cc + " " + target)
+    mesgdcrt.GeneralMessage("จำนวนส่ง         : " + str(requested))
+    mesgdcrt.GeneralMessage("สำเร็จ   : " + str(success))
+    mesgdcrt.GeneralMessage("ล้มเหลว      : " + str(failed))
     mesgdcrt.WarningMessage(
         "This tool was made for fun and research purposes only")
     mesgdcrt.SuccessMessage("TBomb was created by SpeedX")
